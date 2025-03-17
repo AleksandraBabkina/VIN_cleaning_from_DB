@@ -9,14 +9,14 @@ This program performs VIN data cleansing on records retrieved from an Oracle dat
 
 ## Functional Description
 The program performs the following steps:
-1. Retrieves records from the database where the VIN values are not null and the 'notes' field is empty.
+1. Retrieves records from the database where the VIN values are not null and the `notes` field is empty.
 2. Validates the VINs based on a predefined list of known invalid VINs.
 3. Transforms the VINs into a standardized format by converting characters to uppercase, replacing Cyrillic letters with Latin equivalents, and removing non-alphanumeric characters.
 4. Ensures that the cleaned VINs meet the length requirement of at least 8 characters.
 5. Outputs the results in a structured format, with the original and cleaned VINs, saving the cleaned data to a new Excel file for further inspection.
 
 ## How It Works
-1. The program connects to an Oracle database using SQLAlchemy and retrieves data from the 'diasoft_test.v_taxi_4_kostyashov' table where the 'notes' field is null and the 'VIN' field is not empty.
+1. The program connects to an Oracle database using SQLAlchemy and retrieves data from the `diasoft_test.v_taxi_4_kostyashov` table where the `notes` field is null and the `VIN` field is not empty.
 2. For each VIN, the program compares it against a list of known invalid VINs and standardizes the VIN by applying a set of transformation rules.
 3. It applies checks to ensure that the cleaned VINs have a length of at least 8 characters, meeting the expected format for valid VINs.
 4. The results, including both the original and cleaned VINs, are saved to a new Excel file for further analysis or validation.
@@ -25,13 +25,13 @@ The program performs the following steps:
 To run the program, the following parameters need to be provided:
 1. Database credentials: Username, Password, Database DSN (Data Source Name)
 2. A list of invalid VINs: Predefined set of VINs that are known to be invalid.
-3. VIN column: The column containing the VINs to be cleaned, specifically within the 'diasoft_test.v_taxi_4_kostyashov' table.
+3. VIN column: The column containing the VINs to be cleaned, specifically within the `diasoft_test.v_taxi_4_kostyashov` table.
 
 ## Technical Requirements
 To run the program, the following are required:
 1. Python 3.x
 2. Installed libraries: sqlalchemy, pandas
-3. Oracle Database with the 'diasoft_test.v_taxi_4_kostyashov' table, containing the VINs to be cleaned.
+3. Oracle Database with the `diasoft_test.v_taxi_4_kostyashov` table, containing the VINs to be cleaned.
 
 ## Usage
 1. Modify the username, password, and DSN values to connect to your Oracle database.
