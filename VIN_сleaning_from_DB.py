@@ -17,7 +17,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 try:
-    query = "select * from diasoft_test.v_taxi_4_kostyashov where notes is null and VIN is not null"
+    query = "select * from taxi where notes is null and VIN is not null"
     df = pd.read_sql(query, engine)
     df.to_csv(r"C:\Users\aleksandra.babkina\Desktop\Taxi_Registry_sql.csv", index=False)
 finally:
